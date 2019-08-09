@@ -45,12 +45,14 @@ class MovieList extends Component {
     render() {
         const { query, year, movieList, yearList } = this.state;
 
+        // query/year이 변경되지 않았으면, 이전 값을 재사용할 수 있으면 좋겠다.
         const thisMovieList = movieList.filter(movie => {
             if ( query.length > 0 ) {
                 return (movie.title.indexOf(query) > -1) && (movie.year === year);
             }
             return movie.year === year
         });
+
         const thisMovieListExist = thisMovieList.length > 0;
 
         return (

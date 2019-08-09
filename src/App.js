@@ -6,6 +6,7 @@ import TodoList from "./components/todo_list";
 import InputLength from "./components/input_length";
 import CurrencyList from "./components/currency_list";
 import MovieList from "./components/movie_list";
+import Counter2 from "./components/Counter2Hook";
 import Button from 'antd/es/button';
 
 class App extends React.Component {
@@ -14,6 +15,8 @@ class App extends React.Component {
         const { message } = this.props;
         return (
             <>
+                <Counter2 />
+                <hr/>
                 <Button>antd 테스트 버튼</Button>
                 <Button type="primary">antd 테스트 버튼</Button>
                 <MovieList />
