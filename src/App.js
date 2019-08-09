@@ -9,6 +9,7 @@ import MovieList from "./components/movie_list";
 import Counter2 from "./components/Counter2";
 import Counter2Hook from "./components/Counter2Hook";
 import Button from 'antd/es/button';
+import MovieListHook from "./components/movie_list_hook";
 
 class App extends React.Component {
     render() {
@@ -16,6 +17,7 @@ class App extends React.Component {
         const { message } = this.props;
         return (
             <>
+                <MovieListHook />
                 <Counter2 />
                 <Counter2Hook />
                 <hr/>

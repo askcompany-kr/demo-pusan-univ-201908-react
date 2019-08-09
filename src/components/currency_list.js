@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 import { rates as jsonvat_rates } from '../data/jsonvat';
 
 
-class CurrencyItem extends Component {
-    render() {
-        const { country } = this.props;
-        return <li>{country.name} : {country.code}</li>;
-    }
-}
+const CurrencyItem = ({ country }) => {
+    const { name, code } = country;
+    return <li>{name} : {code}</li>;
+};
+
+// class CurrencyItem extends Component {
+//     render() {
+//         const { country } = this.props;
+//         return <li>{country.name} : {country.code}</li>;
+//     }
+// }
 
 class CurrencyItemList extends Component {
     state = {
