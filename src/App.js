@@ -1,10 +1,12 @@
 import React from 'react';
+import './App.css';
 import Counter from "./components/counter";
 import FunctionalCounter from "./components/functional_counter";
 import TodoList from "./components/todo_list";
 import InputLength from "./components/input_length";
 import CurrencyList from "./components/currency_list";
 import MovieList from "./components/movie_list";
+import Button from 'antd/es/button';
 
 class App extends React.Component {
     render() {
@@ -12,6 +14,8 @@ class App extends React.Component {
         const { message } = this.props;
         return (
             <>
+                <Button>antd 테스트 버튼</Button>
+                <Button type="primary">antd 테스트 버튼</Button>
                 <MovieList />
                 <CurrencyList />
                 <hr/>
