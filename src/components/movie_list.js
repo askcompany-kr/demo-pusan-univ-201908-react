@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {Input, Select, Table} from "antd";
 
+const { Option } = Select;
 
 const url = 'https://raw.githubusercontent.com/prust/wikipedia-movie-data/master/movies.json';
 
@@ -12,6 +14,13 @@ class MovieList extends Component {
         'movieList': [],
         'yearList': [],
     };
+
+    columns = [
+        { title: '제목', dataIndex: 'title', key: 'title' },
+        { title: '연도', dataIndex: 'year', key: 'year' },
+        { title: '캐스팅', dataIndex: 'cast', key: 'cast' },
+        { title: '장르', dataIndex: 'genres', key: 'genres' }
+    ];
 
     async componentDidMount() {
         const { data } = await axios.get(url);
@@ -47,12 +56,18 @@ class MovieList extends Component {
         return (
             <div>
                 <h2>Movie List</h2>
-                <input type="text" value={query} onChange={this.onQueryChange} />
-                <select value={year} onChange={this.onChange}>
+
+                <Input type="text" value={query} onChange={this.onQueryChange}
+                       style={{ width: 200 }} />
+
+                <Select value={year} onChange={this.onChange} style={{ width: 100 }}>
                     {yearList.map(year =>
-                        <option key={year} value={year}>{year}</option>
+                        <Option key={year} value={year}>{year}</Option>
                     )}
-                </select>
+                </Select>
+
+                <Table dataSource={thisMovieList} columns={this.columns} />
+
                 <table>
                     <thead>
                         <tr>
