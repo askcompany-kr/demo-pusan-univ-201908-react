@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { rates as jsonvat_rates } from '../data/jsonvat';
 
 
 class CurrencyItem extends Component {
@@ -39,30 +40,14 @@ class CurrencyItemList extends Component {
 }
 
 class CurrencyList extends Component {
-    // jsonvat.com
-    dummyData = [
-        { name: 'Spain', code: 'ES' },
-        { name: 'Bulgaria', code: 'BG' },
-        { name: 'Hungary', code: 'HU' }
-    ];
-
-    // 컴포넌트가 마운트되었때
-    async componentDidMount() {
-        try {
-            const response = await axios.get("https://jsonvat.com");
-            console.log(response);
-            // response.rates => setState에 적용
-        }
-        catch(e) {
-            console.error(e);
-        }
-    }
+    state = { itemList: jsonvat_rates };
 
     render() {
+        const { itemList } = this.state;
         return (
             <div>
                 <h2>Currency List</h2>
-                <CurrencyItemList itemList={this.dummyData} />
+                <CurrencyItemList itemList={itemList} />
                 {JSON.stringify(this.dummyData)}
             </div>
         );
