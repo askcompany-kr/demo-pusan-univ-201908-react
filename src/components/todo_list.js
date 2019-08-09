@@ -47,13 +47,15 @@ class TodoList extends Component {
 
     render() {
         const { current, todoList } = this.state;
+        const todoListLength = todoList.length;
         return (
             <div>
                 <h2>TodoList</h2>
                 <input type="text" value={current}
                        placeholder="할 일을 입력해주세요."
                        onKeyDown={this.onKeyDown}
-                       onChange={this.onChange} />
+                       onChange={this.onChange} /><br/>
+                {todoListLength}개의 할 일이 있습니다.
                 <ul>
                     {todoList.map(todo =>
                         <li key={todo} onDoubleClick={() => this.remove(todo)}>{todo}</li>

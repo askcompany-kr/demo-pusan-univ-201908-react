@@ -8,14 +8,30 @@ class CurrencyItem extends Component {
 }
 
 class CurrencyItemList extends Component {
+    state = {
+        // 초기 1회만 itemList 속성값을 참조해서, 상탯값 할당
+        itemListLength: this.props.itemList.length
+    };
+    // constructor(props) {
+    //     super(props);
+    //     const { itemList } = this.props;
+    //     this.state = {
+    //         itemListLength: itemList.length
+    //     };
+    // }
+
     render() {
         const { itemList } = this.props;
+        const { itemListLength } = this.state;
         return (
-            <ul>
-                {itemList.map(country =>
-                    <CurrencyItem key={country.code} country={country} />
-                )}
-            </ul>
+            <div>
+                갯수 : { itemListLength }
+                <ul>
+                    {itemList.map(country =>
+                        <CurrencyItem key={country.code} country={country} />
+                    )}
+                </ul>
+            </div>
         );
     }
 }
