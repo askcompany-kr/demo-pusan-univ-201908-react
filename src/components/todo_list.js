@@ -23,7 +23,9 @@ class TodoList extends Component {
             //     current: ''
             // })
             const newState = produce(this.state, draft => {
-                draft.todoList.push(draft.current);
+                if ( draft.todoList.indexOf(draft.current) === -1 ) {
+                    draft.todoList.push(draft.current);
+                }
                 draft.current = '';
             });
             this.setState(newState);
@@ -53,7 +55,9 @@ class TodoList extends Component {
                        onKeyDown={this.onKeyDown}
                        onChange={this.onChange} />
                 <ul>
-                    {todoList.map(todo => <li onDoubleClick={() => this.remove(todo)}>{todo}</li>)}
+                    {todoList.map(todo =>
+                        <li key={todo} onDoubleClick={() => this.remove(todo)}>{todo}</li>
+                    )}
                 </ul>
             </div>
         );

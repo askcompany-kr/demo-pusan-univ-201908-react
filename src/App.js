@@ -3,6 +3,7 @@ import Counter from "./components/counter";
 import FunctionalCounter from "./components/functional_counter";
 import TodoList from "./components/todo_list";
 import InputLength from "./components/input_length";
+import CurrencyList from "./components/currency_list";
 
 class App extends React.Component {
     render() {
@@ -10,6 +11,8 @@ class App extends React.Component {
         const { message } = this.props;
         return (
             <>
+                <CurrencyList />
+                <hr/>
                 <InputLength />
                 <hr/>
                 <TodoList />
