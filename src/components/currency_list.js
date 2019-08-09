@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+
 
 class CurrencyItem extends Component {
     render() {
@@ -43,6 +45,18 @@ class CurrencyList extends Component {
         { name: 'Bulgaria', code: 'BG' },
         { name: 'Hungary', code: 'HU' }
     ];
+
+    // 컴포넌트가 마운트되었때
+    async componentDidMount() {
+        try {
+            const response = await axios.get("https://jsonvat.com");
+            console.log(response);
+            // response.rates => setState에 적용
+        }
+        catch(e) {
+            console.error(e);
+        }
+    }
 
     render() {
         return (
