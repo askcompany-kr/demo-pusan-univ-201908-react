@@ -4,6 +4,7 @@ import FunctionalCounter from "./components/functional_counter";
 import TodoList from "./components/todo_list";
 import InputLength from "./components/input_length";
 import CurrencyList from "./components/currency_list";
+import MovieList from "./components/movie_list";
 
 class App extends React.Component {
     render() {
@@ -11,6 +12,7 @@ class App extends React.Component {
         const { message } = this.props;
         return (
             <>
+                <MovieList />
                 <CurrencyList />
                 <hr/>
                 <InputLength />

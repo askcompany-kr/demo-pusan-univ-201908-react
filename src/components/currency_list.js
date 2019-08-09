@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { rates as jsonvat_rates } from '../data/jsonvat';
 
 
